@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.chenkuo.standardframe.dao.SystemConfigMapper">
+
+	<resultMap id="configDetail" type="cn.com.chenkuo.standardframe.pojo.SystemConfig">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="type" jdbcType="VARCHAR" property="type" />
+		<result column="sys_key" jdbcType="VARCHAR" property="sysKey" />
+		<result column="sys_value" jdbcType="VARCHAR" property="sysValue" />
+	</resultMap>
+	
+	<select id="getConfigByType" resultMap="configDetail">
+		SELECT id, type, sys_key, sys_value
+		  FROM system_config
+		 WHERE type = #{type}
+	</select>
+		
+	<delete id="deleteConfig" parameterType="java.lang.Integer">
+		delete from system_config where id = #{id}
+	</delete>
+	
+	<insert id="insertConfig" useGeneratedKeys="true" keyProperty="config.id" parameterType="cn.com.chenkuo.standardframe.pojo.SystemConfig">
+		insert system_config (
+			type,
+			sys_key,
+			sys_value
+		) VALUES (
+			#{config.type},
+			#{config.sysKey},
+			#{config.sysValue})
+	</insert>
+	
+	<update id="updateConfig" parameterType="cn.com.chenkuo.standardframe.pojo.SystemConfig">
+		update system_config
+		   set type = #{config.type},
+			   sys_key = #{config.sysKey},
+		       sys_value = #{config.sysValue}
+		 where id = #{config.id}
+	</update>
+</mapper>
