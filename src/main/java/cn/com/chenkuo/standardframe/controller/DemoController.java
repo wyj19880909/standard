@@ -26,7 +26,6 @@ public class DemoController {
 	@ResponseBody
 	public String home() {
 		System.out.println("heheheeh");
-		
 		return "Hello ,spring boot!";
 	}
 }
