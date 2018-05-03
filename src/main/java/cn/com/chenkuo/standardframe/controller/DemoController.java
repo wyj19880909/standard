@@ -25,6 +25,7 @@ public class DemoController {
 	@RequestMapping("/hello")
 	@ResponseBody
 	public String home() {
+		System.out.println("heheheeh");
 		return "Hello ,spring boot!";
 	}
 }
