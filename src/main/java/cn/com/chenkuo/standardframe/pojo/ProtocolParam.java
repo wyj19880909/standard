@@ -1,4 +1,4 @@
-package cn.com.chenkuo.pojo;
+package cn.com.chenkuo.standardframe.pojo;
 
 public enum ProtocolParam {
 	/**
