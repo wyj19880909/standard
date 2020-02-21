@@ -1,4 +1,4 @@
-package cn.com.chenkuo.pojo;
+package cn.com.chenkuo.standardframe.pojo;
 
 import java.io.Serializable;
 
